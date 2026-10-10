@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="docs/logo.png" width="110" alt="AudioLink logo" />
-</p>
-
 <h1 align="center">AudioLink</h1>
 
 <p align="center"><b>Play your PC's sound through all your speakers and monitors at once, perfectly in sync.</b></p>
