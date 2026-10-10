@@ -180,5 +180,4 @@ If you used the installer: **Settings → Apps → AudioLink → Uninstall**. If
 
 <p align="center">
   Found a bug or have an idea? <a href="../../issues">Open an issue</a>.<br/>
-  Developers: see <a href="BUILDING.md">BUILDING.md</a> to build AudioLink from source.
 </p>
