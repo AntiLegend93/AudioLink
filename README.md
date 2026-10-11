@@ -7,8 +7,9 @@
 <p align="center"><b>Play your PC's sound through all your speakers and monitors at once, perfectly in sync.</b></p>
 
 <p align="center">
-  <a href="../../releases/latest"><img src="https://img.shields.io/badge/Download-latest-4FC3F7?style=for-the-badge" alt="Download" /></a>
-  <a href="https://venmo.com/code?user_id=3587678062773330218&created=1791519560"><img src="https://img.shields.io/badge/Donate-Venmo-008CFF?style=for-the-badge&logo=venmo&logoColor=white" alt="Donate with Venmo" /></a>
+  <a href="../../releases/latest"><img src="docs/download.png" height="32" alt="Download" /></a>
+  &nbsp;
+  <a href="https://venmo.com/code?user_id=3587678062773330218&created=1791519560"><img src="docs/donate.png" height="32" alt="Donate with Venmo" /></a>
 </p>
 
 ---
