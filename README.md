@@ -26,6 +26,7 @@ Windows normally plays sound through one device at a time. AudioLink lets your s
 - **Profiles:** save setups like "Movie" or "Gaming" and switch in one click.
 - **Runs in the background:** lives in the system tray, starts with Windows, and reconnects devices by itself.
 - **Keeps itself up to date:** new versions install in a few seconds.
+- **Looks after itself:** if the sound ever stops, AudioLink notices and gets it going again on its own.
 
 ## Contents
 
@@ -45,9 +46,7 @@ Windows normally plays sound through one device at a time. AudioLink lets your s
 ## Download and install
 
 1. Go to the [**Releases**](../../releases/latest) page.
-2. Download **one** of these:
-   - **AudioLink-Setup-x.y.z.exe** (recommended): run it, and AudioLink appears in your Start menu, with an optional desktop shortcut and a normal uninstaller. It installs just for you, so it doesn't need admin rights, and it can **update itself**.
-   - **AudioLink-x.y.z-win-x64.zip**: the portable version. Unzip it anywhere, such as your Desktop or a USB stick, and run `AudioLink.exe`. It tells you about updates, but you download them yourself.
+2. Download **AudioLink-Setup-x.y.z.exe** and run it. AudioLink appears in your Start menu, with an optional desktop shortcut and a normal uninstaller. It installs just for you, so it doesn't need admin rights, and it **updates itself**.
 
 **Requirements:** Windows 10 (version 2004 or newer) or Windows 11, 64-bit. Nothing else needs installing.
 
@@ -60,9 +59,9 @@ Windows normally plays sound through one device at a time. AudioLink lets your s
 1. **Open AudioLink.** Your playback devices appear as strips across the window.
 2. **Turn on the outputs you want:** press **ON** on each strip (A1, A2, A3...).
 3. **Press START** in the top-right corner, then play some music or a video.
-4. **Press PERFECT SYNC** and pick a spare device (see [Perfect Sync](#perfect-sync)). This lines up every speaker so nothing echoes.
+4. **Press PERFECT SYNC** (see [Perfect Sync](#perfect-sync)). This lines up every speaker so nothing echoes.
 
-That's it. AudioLink remembers your settings for next time. Closing the window keeps it running in the system tray by the clock.
+That's it. AudioLink remembers your settings (and where you put the window) for next time. Closing the window keeps it running in the system tray by the clock.
 
 ---
 
@@ -78,7 +77,7 @@ That's it. AudioLink remembers your settings for next time. Closing the window k
 | **PERFECT SYNC** | Lines up every device, your main speakers included, so they all play at exactly the same moment. |
 | **TEST CLICK** | Plays a ticking sound so you can fine-tune delays by ear. |
 | **REFRESH** | Re-scans your devices. Use it after plugging something in or turning a monitor on. |
-| **⚙ Settings** | **Start with Windows**, **Keep running in the tray when closed**, the **Bluetooth delay preset**, **update** options, and **Exit**. |
+| **⚙ Settings** | **Start with Windows**, **Keep running in the tray when closed**, the **Bluetooth delay preset**, the **Perfect Sync device**, **Copy diagnostics** and **Open log folder** (for reporting a problem), **update** options, and **Exit**. |
 | **START / STOP** | Starts or stops AudioLink. The status light (above the strips) turns green while it's running. |
 
 ### Source strip (left)
@@ -119,7 +118,7 @@ With **Start with Windows** on, AudioLink starts quietly in the tray when you si
 
 ### Automatic reconnect
 
-When a monitor wakes up, Bluetooth reconnects, or you plug a device back in, AudioLink notices and switches its strip back on by itself. If Windows changes its default output while Perfect Sync is on (which it does when new devices appear), AudioLink switches it straight back.
+When a monitor wakes up, Bluetooth reconnects, or you plug a device back in, AudioLink notices and switches its strip back on by itself. If Windows changes its default output while Perfect Sync is on (which it does when new devices appear), AudioLink switches it straight back. And if the sound ever stops reaching AudioLink, it restarts itself within a few seconds.
 
 ---
 
@@ -133,18 +132,17 @@ Windows plays your main speakers **directly**, so they always play a few millise
 
 Perfect Sync takes your main speakers off that direct path:
 
-1. Windows sends its sound to a **spare device** that nobody listens to.
+1. Windows sends its sound to a **spare device** that nobody listens to. AudioLink keeps that device awake, so it can't switch itself off when things go quiet.
 2. AudioLink picks it up and plays it on **all** your devices, main speakers included.
 3. Every device then gets its own delay, so AudioLink can line them all up exactly. Bluetooth devices automatically get extra time for their wireless delay.
 
 ### Turning it on
 
-1. Press **PERFECT SYNC**.
-2. Pick a spare device from the list. Good choices:
-   - **"Digital Output"** or **"S/PDIF"**: most PCs have one, and it's usually unused.
-   - An **HDMI output** with nothing plugged in.
-   - The free [VB-Cable](https://vb-audio.com/Cable/) virtual device, which is made for exactly this.
-3. Press **Turn on**. AudioLink switches Windows over, starts playing, and sets every delay automatically.
+Press **PERFECT SYNC**. That's it: AudioLink picks a spare device by itself, switches Windows over, starts playing, and sets every delay automatically. A message tells you which device it chose.
+
+It prefers devices nobody can hear: the free [VB-Cable](https://vb-audio.com/Cable/) virtual device if you have it, then a **"Digital Output"** / **S/PDIF**, then any other unused output. It never picks headphones or Bluetooth.
+
+**Want a different one?** If you can ever hear sound coming straight from the spare device, choose another under **⚙ Settings → Perfect Sync device…**.
 
 While Perfect Sync is on, the source fader and your keyboard's volume keys control **everything** at once.
 
@@ -190,10 +188,7 @@ Some monitors add a little delay inside their own electronics, and no software c
 
 ## Updates
 
-AudioLink checks for a new version every time it starts, and every few hours while it's running in the tray. When one is out, a green bar appears at the bottom of the window (it closes itself after 5 minutes):
-
-- **Installer version:** click **Update now**. AudioLink downloads the update, installs it, and reopens in a few seconds, keeping all your settings.
-- **Portable version:** click **Download** to get the new zip from GitHub.
+AudioLink checks for a new version every time it starts, and every few hours while it's running in the tray. When one is out, a green bar appears at the bottom of the window (it closes itself after 5 minutes). Click **Update now**: AudioLink downloads the update, installs it, and reopens in a few seconds, keeping all your settings. The first time you open a new version, a short **"What's new"** message shows what changed.
 
 You can also update from the tray icon's right-click menu, check by hand under **⚙ Settings → Check for updates**, or turn automatic checks off there.
 
@@ -209,6 +204,7 @@ You can also update from the tray icon's right-click menu, check by hand under *
 | **Sound echoes / devices out of sync** | Turn **PERFECT SYNC** off and on again, then fine-tune with **TEST CLICK**. |
 | **An app won't move to another device** | Pause and play it again; some apps only switch then. Or use Windows' own setting: **APPS → Open Windows' per-app sound settings**. |
 | **No sound at all after a crash** | Open AudioLink again, and it restores your speakers automatically. Or choose your speakers in Windows Sound settings. |
+| **Something else is wrong** | Open **⚙ Settings → Copy diagnostics** and paste the result into an [issue](../../issues). It lists your devices and what AudioLink has been doing, which usually shows exactly what happened. |
 | **Everything is muddled up** | Reset AudioLink: exit it, delete the folder `%LocalAppData%\AudioLink`, and open it again. |
 
 ---
@@ -237,7 +233,7 @@ Right-click the tray icon → **Exit AudioLink**, or use **⚙ Settings → Exit
 In `%LocalAppData%\AudioLink\settings.json`. They're saved automatically.
 
 **How do I uninstall?**
-If you used the installer: **Settings → Apps → AudioLink → Uninstall**. If you used the zip, just delete the folder.
+**Settings → Apps → AudioLink → Uninstall**. It closes AudioLink, switches Windows back to your speakers if Perfect Sync was on, and turns off Start with Windows. Your settings stay in `%LocalAppData%\AudioLink` in case you reinstall; delete that folder too if you want them gone.
 
 ---
 
